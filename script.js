@@ -16,14 +16,18 @@
 
 // Create the Factory class bellow:
 class Factory {
+  static massBuild(quantity, options) {
+    console.log('Building ' + quantity + car.color + car.trim + car.model)
+  }
+  static customerBuild(color, options) {
+    console.log('Building one ' + this.color + this.trim + this.model + ' with the following options: ' + this.options)
+  }
   constructor(warranty) {
     this.make = 'Mazda'
     this.location = 'USA'
     this.airbags = true
     this.abs = true
     this.warranty = '60,000 miles / 3 years'
-    // this.massBuild = massBuild(quantity, options)
-    // this.customerBuild = customerBuild(color, options)
   }
 }
 // CREATE A SUB-CLASS CALLED CAR
@@ -47,9 +51,10 @@ class Car extends Factory {
     warranty,
     enginesize,
     navigation,
-    backupcamera
+    backupcamera,
+    massBuild
   ) {
-    super(warranty)
+    super(warranty, massBuild)
     this.model = model
     this.doors = doors
     this.color = color
@@ -121,6 +126,7 @@ console.log(
 // Print calling massBuild(), building 35000 cars.
 // It should print: "Building 35000 Red Touring Mazda3's."
 // Write your code below:
+console.log(massBuild.mazda3)
 
 // Print, calling customerBuild(), building one yellow mazda3 with the following options, as an array: weather package, satellite radio, rear spoiler.
 // It should read: "Building one yellow Touring Mazda3 with the following options: weather package, satellite radio, rear spoiler"
